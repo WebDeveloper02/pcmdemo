@@ -1,0 +1,91 @@
+#logo {
+    width: 150px;
+}
+
+.div {
+    padding-top: 30px;
+}
+
+.pagenumber {
+    text-align: center;
+}
+
+#checkbox {
+    width: 40px;
+}
+
+th {
+    width: 150px;
+    color: rgb(0, 80, 160);
+}
+
+#long-th {
+    width: 230px;
+}
+
+.short {
+    width: 100px;
+}
+
+table {
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+#nav-bar {
+    background-color: rgb(230, 240, 250);
+}
+
+#nav-text {
+    font-weight: bold;
+    color: rgb(0, 80, 160);
+}
+
+#loading-bar {
+    padding-top: 55px;
+}
+
+#update-button {
+    background-color: rgb(0, 80, 160);
+    color: rgb(240, 240, 240);
+}
+
+#home-link {
+    color: rgb(0, 80, 160);
+}
+
+.form-control {
+    border-color: rgb(160, 200, 240);
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+#sessionexpiry {
+    padding-top: 50px;
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px; 
+    background-color: #FAF064;
+    color: #0050A0;
+    border-radius: 10px;
+}
+
+.norecords {
+    margin: 20px; 
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #E6F0FA;
+    border-radius: 10px;
+    color: #0050A0;
+}
+
+.option {
+    color: #0050A0;
+}

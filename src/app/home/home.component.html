@@ -1,0 +1,33 @@
+<div class="clearfix">
+  <nav class="navbar fixed-top" id="nav-bar">
+    <img src="https://sjb.vll.se/image/layout_set_logo?img_id=90243&t=1516352813560" id="logo" alt="VLL-LOGO">
+    <span class="navbar-brand" id="nav-text">WELCOME TO PRODUCT CATALOG MODULE</span>
+    <!-- <span id="nav-text">Signed in as Samvid</span> -->
+    <a class="navbar-brand" id="logout-link" (click)="Logout()">
+      <i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+  </nav>
+  <!-- <div id="logintime"><span>Current session expires at {{ tokenExpiryTime | date : 'medium' : timezone}}</span></div> -->
+  <div class="container">      
+    <div class="row col-md-12">                  
+      <div class="option">
+        <a class="btn btn-lg btn-block btn-add" routerLink="/home" routerLinkActive="active">
+          <i class="fa fa-plus" aria-hidden="true"></i> ADD RECORD</a>
+      </div>
+      <div class="option">
+        <a class="btn btn-lg btn-block btn-editdelete" routerLink="/home" routerLinkActive="active">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          EDIT/DELETE RECORD</a>
+      </div>
+      <div class="option">
+        <a class="btn btn-lg btn-block btn-update" routerLink="/editpricelist" routerLinkActive="active">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          UPDATE RECORDS</a>
+      </div>
+      <div class="option">
+        <a class="btn btn-lg btn-block btn-view" routerLink="/home" routerLinkActive="active">
+          <i class="fa fa-eye" aria-hidden="true"></i>
+          VIEW RECORDS</a>
+      </div>
+    </div>
+  </div>
+</div>

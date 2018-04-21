@@ -1,0 +1,21 @@
+#logo {
+    width: 150px;
+}
+
+.container-fluid {
+    padding-top: 300px;
+    text-align: center;
+}
+
+#nav-bar {
+    background-color: rgb(230, 240, 250);
+}
+
+#nav-text {
+    color: rgb(0, 80, 160);
+    font-weight: bold;    
+}
+
+h4 {
+    color: #F06E6E;
+}

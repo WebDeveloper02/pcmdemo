@@ -1,0 +1,96 @@
+h2 {
+    padding-right: 175px;
+    padding-bottom: 30px;
+    color: #0050A0;
+}
+
+h6 {
+    text-align: center;
+    color: #828282;
+}
+
+#login-form {
+    padding-right: 180px;
+}
+
+#login-button {
+    background-color: rgb(0, 80, 160);
+    color: rgb(240, 240, 240);
+}
+
+#clear-button {
+    background-color: rgb(160, 200, 240);
+    color: rgb(130, 130, 130);
+}
+
+input {
+    text-align: center;
+} 
+
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-size: 1.25rem;
+    font-family: sans-serif;
+    line-height: 150%;
+    text-shadow: 0 2px 2px #b6701e;
+  }
+  
+  section {
+    color: #fff;
+    text-align: center;
+  }
+  
+  div {
+    height: 100%;
+  }
+  
+  article {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 20px;
+  }
+  
+  img {
+      height: 100%;
+      width: 50%;
+      padding-top: 10px;
+  }
+  
+  /* Pattern styles */
+  .container {
+    display: table;
+    width: 100%;
+  }
+  
+  .left-half {
+    background-color: #E6F0FA;
+    position: absolute;
+    left: 0px;
+    width: 50%;
+  }
+  
+  .right-half {
+    background-color: #E6F0FA;
+    position: absolute;
+    right: 0px;
+    width: 50%;
+  }
+
+  input.ng-invalid.ng-dirty {
+    border-color: #F06E6E !important;
+  }
+  
+
+  /* .credits {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;   
+}  */
+

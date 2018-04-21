@@ -1,0 +1,202 @@
+<div class="clearfix">
+  <nav class="navbar fixed-top" id="nav-bar">
+    <img src="https://sjb.vll.se/image/layout_set_logo?img_id=90243&t=1516352813560" id="logo" alt="VLL-LOGO">
+    <span class="navbar-brand" id="nav-text">UPDATE RECORDS BASED ON KATEGORI</span>
+    <a class="navbar-brand" id="home-link" routerLink="/home" routerLinkActive="active">
+      <i class="fa fa-home" aria-hidden="true"></i> Home</a>
+  </nav>
+  <!-- <div id="sessionexpiry">
+    <span>Current session expires at {{ tokenExpiryTime | date : 'medium' : timezone}}</span>
+  </div> -->
+  <div id="loading-bar">
+    <ng2-slim-loading-bar [color]="'rgb(240, 110, 110)'" [height]="'4px'">Updating...</ng2-slim-loading-bar>
+  </div>
+  <div class="div">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2">
+          <input type="text" class="cust" class="form-control" placeholder="Search text here ..." [(ngModel)]="filterString" maxlength="200"
+            style="width: 230px;">
+        </div>
+        <div class="col-md-2">
+          <input type="text" class="cust" class="form-control" placeholder="Enter input here ..." [(ngModel)]="updateString" maxlength="200"
+            style="width: 230px;">
+        </div>
+        <div class="col-md-2">
+          <select class="select-option form-control" [(ngModel)]='optionSelected' (ngModelChange)='onOptionsSelected($event)' style="width: 230px;">
+            <option value="" selected disabled>Please select a column</option>
+            <option class="option" *ngFor="let option of options" [value]="option">{{option}}</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <button [disabled]="selectedPricelistRecords.length > 0 ? false : true" id="update-button" class="btn" style="width: 230px;"
+            (click)="updateSelectedRecords()">Update Selected Records</button>
+        </div>
+        <div class="col-md-2">
+          <button id="goback-button" class="btn" style="width: 100px;background-color:#AAD2AA;"
+          routerLink="/editpricelist" routerLinkActive="active"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Go Back</button>
+        </div>
+      </div>
+      <table class="table table-sm table-hover" *ngIf="!renderedPricelist || renderedPricelist.length != 0">
+        <thead>
+          <th id="checkbox">
+            <input type="checkbox" [(ngModel)]="selectedAllPricelistRecords" (change)="selectAll();">
+          </th>
+          <!-- <th>
+            AVTNR
+          </th>
+          <th>
+            GILTDAT
+          </th> 
+          <th>
+            LEVEAN
+          </th>-->
+          <th>
+            ARTNR
+          </th>
+          <th>
+            ARTLEVAR
+          </th>
+          <th class="pointer short" (click)="sort('KLASS')">
+            KLASS
+            <i class="fa" [ngClass]="{ 'fa-sort': (column !== 'KLASS'),
+              'fa-sort-desc': (column == 'KLASS' && !isDesc),
+            'fa-sort-asc': (column == 'KLASS' && isDesc)}" aria-hidden="true"></i>
+          </th>
+          <th>
+            KATEGORI
+          </th>
+          <!-- <th>
+            EANKOD
+          </th> 
+          <th>
+            UHGRP
+          </th> -->
+          <th id="long-th">
+            ARTNMN1
+          </th>
+          <th id="long-th">
+            ARTNMN2
+          </th>
+          <!-- <th>
+            ARTFABR
+          </th> -->
+          <!-- <th>
+            ARTKEVT
+          </th>
+          <th>
+            ARTLEVFP
+          </th>
+          <th>
+            ARTTRPFP
+          </th>
+          <th>
+            ARTPALFP
+          </th> -->
+          <!-- <th>
+            ARTMOMSK
+          </th> -->
+          <th class="short">
+            ARTPRIS
+          </th>
+          <th class="short">
+            ARTPRISP
+          </th>
+          <!-- <th>
+            ARTUTLEH
+          </th> -->
+          <th id="long-th">
+            URLLÄNK
+          </th>
+          <!-- <th>
+            NS2TEST
+          </th> -->
+        </thead>
+        <tbody>
+          <!-- <tr *ngFor="let eachrow of renderedPricelist | searchFilter: filterString: pageName | orderBy: {property: column, direction: direction} | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems: totalCount }; let i = index"> -->
+          <tr *ngFor="let eachrow of renderedPricelist | orderBy: {property: column, direction: direction} | searchFilter: filterString: pageName ; let i = index">
+            <td>
+              <input type="checkbox" [(ngModel)]="eachrow.Selected" (change)="onIndividualCheckboxClick(eachrow.Pricelist, eachrow.Selected);">
+            </td>
+            <!-- <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.AVTNR">
+            </td>
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.GILTDAT">
+            </td> 
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.LEVEAN">
+            </td>-->
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.ARTNR" readonly>
+            </td>
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.ARTLEVAR" readonly>
+            </td>
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.KLASS">
+            </td>
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.KATEGORI">
+            </td>
+            <!-- <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.EANKOD">
+            </td> 
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.UHGRP">
+            </td>-->
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.ARTNMN1">
+            </td>
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.ARTNMN2">
+            </td>
+            <!-- <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.ARTFABR">
+            </td> -->
+            <!-- <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.ARTKEVT">
+            </td>
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.ARTLEVFP">
+            </td>
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.ARTTRPFP">
+            </td>
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.ARTPALFP">
+            </td> -->
+            <!-- <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.ARTMOMSK">
+            </td> -->
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.ARTPRIS">
+            </td>
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.ARTPRISP">
+            </td>
+            <!-- <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.ARTUTLEH">
+            </td> -->
+            <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.URLLINK">
+            </td>
+            <!-- <td>
+              <input class="form-control" type="text" [(ngModel)]="eachrow.Pricelist.ns2_test">
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12" *ngIf="!renderedPricelist || renderedPricelist.length == 0">
+      <h4 class="norecords">{{ statusMessage }} <i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i></h4>
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div class="col-md-12" *ngIf="renderedPricelist && renderedPricelist.length == 0">
+      <h4 class="norecords">No records to display.</h4>
+    </div>
+  </div> -->
+</div>

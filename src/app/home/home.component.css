@@ -1,0 +1,40 @@
+#logo {
+    width: 150px;
+}
+
+.container {
+    padding-top: 200px;
+}
+
+.option {
+    width: 50%;
+    padding: 10px;
+}
+
+#nav-bar {
+    background-color: rgb(230, 240, 250);
+}
+
+#nav-text {
+    color: rgb(0, 80, 160);
+    font-weight: bold;    
+}
+
+#logout-link {
+    color: rgb(0, 80, 160);
+    cursor: pointer;
+}
+
+#logintime {
+    padding-top: 50px;
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px; 
+    background-color: #FAF064;
+    color: #0050A0;
+    border-radius: 10px;
+}
